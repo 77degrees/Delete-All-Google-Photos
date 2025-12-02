@@ -1,1 +1,0 @@
-import{O as t}from"./Options-504a9120.js";import"./index-6cab9911.js";import"./ExtPay.module-d5c3e8e1.js";const e=document.getElementById("app");function n(){new t({target:e,props:{}})}document.addEventListener("DOMContentLoaded",n);

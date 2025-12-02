@@ -1,1 +1,0 @@
-import{E as t}from"./ExtPay.module-d5c3e8e1.js";const o=t("delete-all-google-photos");o.startBackground();o.onPaid.addListener(e=>{chrome.runtime.openOptionsPage()});chrome.runtime.onInstalled.addListener(({reason:e})=>{e==="install"&&chrome.runtime.openOptionsPage()});
