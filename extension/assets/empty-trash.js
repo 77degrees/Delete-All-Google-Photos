@@ -1,6 +1,12 @@
 // Empty Trash Content Script
 // This script automates emptying the Google Photos trash
 
+// Constants
+const PAGE_LOAD_DELAY = 2000;
+const CONFIRMATION_DIALOG_TIMEOUT = 10;
+const ACTION_COMPLETION_DELAY = 3000;
+const ELEMENT_POLL_INTERVAL = 50;
+
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -9,7 +15,7 @@ async function waitForElement(selector, timeout) {
   const startTime = new Date();
   while (!document.querySelector(selector)) {
     if (new Date() - startTime >= timeout * 1000) return null;
-    await sleep(50);
+    await sleep(ELEMENT_POLL_INTERVAL);
   }
   return document.querySelector(selector);
 }
@@ -88,7 +94,7 @@ function showError(message) {
 async function emptyTrash() {
   showStatus('⏳', 'Emptying Trash...', 'Please wait while we permanently delete all photos from your trash. Do not close this tab.');
   
-  await sleep(2000); // Wait for the page to fully load
+  await sleep(PAGE_LOAD_DELAY); // Wait for the page to fully load
   
   // Look for the "Empty trash" button
   // Google Photos has a button with aria-label containing "Empty trash" or similar text
@@ -138,25 +144,26 @@ async function emptyTrash() {
   
   // Wait for and click the confirmation button in the dialog
   // Google Photos usually shows a confirmation dialog
-  const confirmBtn = await waitForElement('button[data-mdc-dialog-button-default], button[autofocus], div[role="dialog"] button:last-child', 10);
+  const confirmBtn = await waitForElement('button[data-mdc-dialog-button-default], button[autofocus], div[role="dialog"] button:last-child', CONFIRMATION_DIALOG_TIMEOUT);
   
   if (confirmBtn) {
     console.log('Found confirmation button, clicking...');
     confirmBtn.click();
     
     // Wait for the action to complete
-    await sleep(3000);
+    await sleep(ACTION_COMPLETION_DELAY);
     
     showSuccess();
   } else {
     // Maybe there was no confirmation dialog and it worked directly
-    await sleep(2000);
+    await sleep(PAGE_LOAD_DELAY);
     showSuccess();
   }
 }
 
 // Export the onExecute function for the loader
-export function onExecute() {
+export function onExecute(options) {
+  // options contains { perf: { injectTime, loadTime } } from the loader
   // Check if we're on the trash page with empty_trash parameter
   if (window.location.href.includes('?empty_trash') || window.location.href.includes('&empty_trash')) {
     // Wait for page to load
