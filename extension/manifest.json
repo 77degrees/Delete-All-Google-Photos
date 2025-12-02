@@ -20,6 +20,10 @@
       "js": [ "assets/onpaid.ts-loader-036e8860.js" ],
       "matches": [ "https://extensionpay.com/*" ],
       "run_at": "document_start"
+   }, {
+      "css": [ "assets/index-22687b56.css" ],
+      "js": [ "assets/empty-trash-loader.js" ],
+      "matches": [ "https://photos.google.com/trash?empty_trash*", "https://photos.google.com/u/*/trash?empty_trash*" ]
    } ],
    "description": "This extension automates bulk deletion of your Google Photos since Google doesn't allow you to.",
    "icons": {
@@ -40,7 +44,7 @@
    "version": "2.4",
    "web_accessible_resources": [ {
       "matches": [ "https://photos.google.com/*", "https://photos.google.com/*" ],
-      "resources": [ "assets/index-6cab9911.js", "assets/ExtPay.module-d5c3e8e1.js", "assets/index.ts-52fb07d2.js" ],
+      "resources": [ "assets/index-6cab9911.js", "assets/ExtPay.module-d5c3e8e1.js", "assets/index.ts-52fb07d2.js", "assets/empty-trash.js" ],
       "use_dynamic_url": false
    }, {
       "matches": [ "https://extensionpay.com/*" ],

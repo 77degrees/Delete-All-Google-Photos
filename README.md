@@ -5,6 +5,7 @@ A powerful Chrome extension that automates bulk deletion of your Google Photos. 
 ## ✨ Features
 
 - **🚀 Bulk Delete**: Automatically selects and deletes multiple photos at once
+- **🗑️ Empty Trash**: One-click button to automatically empty your Google Photos trash
 - **📊 Progress Tracking**: Real-time counter showing how many photos have been deleted
 - **💾 Resume Support**: If interrupted, you can resume deletion from where you left off
 - **🔒 Privacy First**: No data is collected or transmitted - everything runs locally in your browser
@@ -50,15 +51,16 @@ A powerful Chrome extension that automates bulk deletion of your Google Photos. 
    - A progress indicator keeps you informed of the deletion status
 
 5. **Empty Trash**
-   - After deletion completes, go to Google Photos Trash
-   - Click "Empty trash" to permanently remove the photos
+   - After deletion completes, click the "🗑️ Empty Trash Now" button
+   - The extension will automatically navigate to your trash and empty it
+   - Alternatively, you can manually go to Google Photos Trash and click "Empty trash"
 
 ### Progress Tracking
 
 The extension displays:
 - **📊 Photos Deleted Counter**: Shows the total number of photos moved to trash
 - **⏳ Status Indicator**: Visual feedback during the deletion process
-- **✅ Success Screen**: Confirmation when deletion is complete with a link to empty trash
+- **✅ Success Screen**: Confirmation when deletion is complete with an "Empty Trash" button
 
 ## ⚠️ Important Notes
 
