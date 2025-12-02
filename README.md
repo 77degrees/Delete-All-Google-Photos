@@ -10,11 +10,6 @@ A Chrome extension that automates bulk deletion of your Google Photos since Goog
 
 ## Installation
 
-### From Chrome Web Store
-1. Visit the Chrome Web Store page for "Delete All Google Photos"
-2. Click "Add to Chrome"
-3. Confirm the installation
-
 ### Manual Installation (Developer Mode)
 1. Download or clone this repository
 2. Open Chrome and navigate to `chrome://extensions/`
