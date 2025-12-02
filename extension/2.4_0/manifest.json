@@ -1,0 +1,50 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "src/assets/icons/icon128.png",
+         "16": "src/assets/icons/icon16.png",
+         "32": "src/assets/icons/icon32.png",
+         "48": "src/assets/icons/icon48.png"
+      },
+      "default_popup": "src/popup/popup.html"
+   },
+   "background": {
+      "service_worker": "service-worker-loader.js",
+      "type": "module"
+   },
+   "content_scripts": [ {
+      "css": [ "assets/index-22687b56.css" ],
+      "js": [ "assets/index.ts-loader-89e0494e.js" ],
+      "matches": [ "https://photos.google.com/?delete_all*", "https://photos.google.com/u/*/?delete_all*" ]
+   }, {
+      "js": [ "assets/onpaid.ts-loader-036e8860.js" ],
+      "matches": [ "https://extensionpay.com/*" ],
+      "run_at": "document_start"
+   } ],
+   "description": "This extension automates bulk deletion of your Google Photos since Google doesn't allow you to.",
+   "icons": {
+      "128": "src/assets/icons/icon128.png",
+      "16": "src/assets/icons/icon16.png",
+      "32": "src/assets/icons/icon32.png",
+      "48": "src/assets/icons/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArUUq6w19WnIIjHFk36xYXYjFHOz3TCZ80vAavBjFnGN+rvuiMgBPARS2CHlzzhH8Gdjdp2o25YkD4p1p+aDtRZGvpzBa+8PXoG9A+9Ts0dHCR0svy/JMD85kILo47HFVhh5SAYfrmG70OncQsgV0XbK/jfhwKKTvZwe3mN97bJblxjm4qIFvxul9OSBqhCF/OCUtazJQ0glZZ81S/39e5O7v6AEgCqLg/TwZG50nrVzDhAQbBEcnh2k9KQBjhZxOYWQnSEYsK27aUpT4Z0L1rThqSPZ5Iz64aauolysa5/aGfsjrjVWi55uktQKPkJ/nXKWk/MfaRk6Q/sUdjRg9LwIDAQAB",
+   "manifest_version": 3,
+   "name": "Delete All Google Photos Chrome Extension",
+   "options_ui": {
+      "open_in_tab": true,
+      "page": "src/options/options.html"
+   },
+   "permissions": [ "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.4",
+   "web_accessible_resources": [ {
+      "matches": [ "https://photos.google.com/*", "https://photos.google.com/*" ],
+      "resources": [ "assets/index-6cab9911.js", "assets/ExtPay.module-d5c3e8e1.js", "assets/index.ts-52fb07d2.js" ],
+      "use_dynamic_url": false
+   }, {
+      "matches": [ "https://extensionpay.com/*" ],
+      "resources": [ "assets/onpaid.ts-4ed993c7.js" ],
+      "use_dynamic_url": false
+   } ]
+}
